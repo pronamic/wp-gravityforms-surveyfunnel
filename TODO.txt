@@ -1,0 +1,2 @@
+Recurrence: Once, Weekly, Monthly
+Show: Show right away, Show on click on banner

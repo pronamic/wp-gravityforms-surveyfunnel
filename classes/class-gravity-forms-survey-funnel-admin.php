@@ -1,6 +1,8 @@
 <?php
 /**
  * This class handles the admin part of the plugin
+ * 
+ * @version 22-08-12
  */
 class Gravity_Forms_Survey_Funnel_Admin {
 	
@@ -20,8 +22,8 @@ class Gravity_Forms_Survey_Funnel_Admin {
 	static function admin_menu(){
 		add_submenu_page(
 			'options-general.php',
-			__('Gravity Forms Survey Settings', 'gravityforms-surveyfunnel-plugin'),
-			__('Survey Settings', 'gravityforms-surveyfunnel-plugin'),
+			__('Gravity Forms Survey Settings', 'gravity-forms-survey-funnel-plugin'),
+			__('Survey Settings', 'gravity-forms-survey-funnel-plugin'),
 			'manage_options',
 			'gravityforms-surveyfunnel-survey-settings',
 			array( __CLASS__, 'survey_settings_page' )

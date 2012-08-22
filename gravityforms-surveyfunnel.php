@@ -18,12 +18,16 @@
 class Gravity_Forms_Survey_Funnel {
 	// Translate
 	static function bootstrap(){
+		// Translate
 		add_action( 'init', array( __CLASS__, 'localize' ) );
 		
 		// Initialize admin settings page.
 		if( is_admin() ){
-			include_once('classes/class-gravityforms-surveyfunnel-admin.php');
+			include_once('classes/class-gravity-forms-survey-funnel-admin.php');
 			Gravity_Forms_Survey_Funnel_Admin::init();
+		} else {
+			include_once('classes/class-gravity-forms-survey-funnel-survey.php');
+			Gravity_Forms_Survey_Funnel_Survey::init();
 		}
 	}
 	
@@ -32,10 +36,19 @@ class Gravity_Forms_Survey_Funnel {
 	 */
 	static function localize(){
 		load_plugin_textdomain(
-			'gravityforms-surveyfunnel-plugin',
+			'gravity-forms-survey-funnel-plugin',
 			false,
 			dirname(plugin_basename(__FILE__)) . '/languages/'
 		);
+	}
+	
+	/**
+	 * Returns url to the base directory of this plugin.
+	 *
+	 * @return string pluginUrl
+	 */
+	static function getPluginUrl(){
+		return plugins_url('', __FILE__);
 	}
 	
 	/**
