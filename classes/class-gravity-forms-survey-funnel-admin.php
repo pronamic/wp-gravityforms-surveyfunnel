@@ -41,10 +41,11 @@ class Gravity_Forms_Survey_Funnel_Admin {
 	 * Shows the survey settings page
 	 */
 	static function survey_settings_page(){
-		// Get all active surveys
-		$surveys = RGFormsModel::get_forms(true);
+		// Get all active surveys, if Gravity Forms is active
+		if( method_exists('RGFormsModel', 'get_forms') )
+			$surveys = RGFormsModel::get_forms( true );
 
 		// Include settings page
-		include_once(Gravity_Forms_Survey_Funnel::getPluginPath() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'survey-settings.php');
+		include_once( Gravity_Forms_Survey_Funnel::getPluginPath() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'survey-settings.php' );
 	}
 }
