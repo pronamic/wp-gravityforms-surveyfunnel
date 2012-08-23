@@ -11,6 +11,11 @@ class Gravity_Forms_Survey_Funnel_Survey {
 	 * Initializes the surveys
 	 */
 	static function init(){
+		// Check if a survey should be shown
+		$surveyId = get_option('gravity-forms-survey-funnel-survey-id');
+		if( ! is_numeric($surveyId) || $surveyId == -1 )
+			return;
+		
 		// Prepare scripts and styles
 		add_action( 'init', array( __CLASS__, 'prepare_dependencies' ) );
 		
@@ -22,11 +27,18 @@ class Gravity_Forms_Survey_Funnel_Survey {
 	 * Prepares the scripts and styles of the form
 	 */
 	static function prepare_dependencies(){
+		// Enqueue cookie script
+		wp_enqueue_script(
+			'gravity-forms-survey-funnel-jquery-cookies',
+			Gravity_Forms_Survey_Funnel::getPluginUrl() . '/js/jquery-cookie.js',
+			array('jquery')
+		);
+		
 		// Enqueue survey script
 		wp_enqueue_script(
 			'gravity-forms-survey-funnel-survey-script',
 			Gravity_Forms_Survey_Funnel::getPluginUrl() . '/js/survey.js',
-			array('jquery')
+			array('jquery', 'gravity-forms-survey-funnel-jquery-cookies')
 		);
 		
 		// Enqueue survey style
@@ -38,30 +50,38 @@ class Gravity_Forms_Survey_Funnel_Survey {
 	
 	/**
 	 * Outputs the html of the form
+	 * 
+	 * @param int $surveyId
 	 */
 	static function prepare_form(){
+		$surveyId = get_option('gravity-forms-survey-funnel-survey-id');
+		
 		// Get form
-		$form = self::get_form();
+		$form = self::get_form( get_option('gravity-forms-survey-funnel-survey-id') );
 		
 		// Include the survey screen
-		include_once(Gravity_Forms_Survey_Funnel::getPluginPath() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'survey.php');
+		include_once( Gravity_Forms_Survey_Funnel::getPluginPath() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'survey.php' );
 	}
 	
 	/**
 	 * Get form
 	 * 
+	 * @param int $surveyId
 	 * @return string $form
 	 */
-	static function get_form(){
+	static function get_form( $surveyId ){
+		if( ! is_numeric( $surveyId ) )
+			return '<p>' . __('We\'re sorry, the survey is not available at the moment.', 'gravity-forms-survey-funnel') . '</p>';
+		
 		ob_start();
 		gravity_form(
-			1,
+			get_option('gravity-forms-survey-funnel-survey-id'),
 			$display_title = true,
 			$display_description = true,
 			$display_inactive = true,
 			$field_values = null,
 			$ajax = true,
-			0
+			10
 		);
 		return ob_get_clean();
 	}

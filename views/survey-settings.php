@@ -8,20 +8,23 @@ endif;
 
 <h3><?php _e('Gravity Forms Survey Settings', 'gravity-forms-survey-funnel-plugin'); ?></h3>
 <form method="post" action="options.php">
-	<?php settings_fields('gravityforms-surveyfunnel-survey-settings'); ?>
+	<?php settings_fields('gravity-forms-survey-funnel-survey-settings'); ?>
 	
 	<table class="wide-fat">
 		<tr>
 			<td><?php _e('Survey', 'gravity-forms-survey-funnel-plugin'); ?></td>
 			<td>
-				<select name="survey-id">
-					<option value="-1">
+				<select name="gravity-forms-survey-funnel-survey-id">
+					<option 
+						value="-1"
+						<?php selected( get_option('gravity-forms-survey-funnel-survey-id'), -1 ); ?>
+					>
 						<?php _e('Don\'t show any survey', 'gravity-forms-survey-funnel-plugin'); ?>
 					</option>
 					<?php foreach($surveys as $survey): ?>
 						<option 
 							value="<?php echo $survey->id; ?>"
-							<?php selected( get_option('survey-id'), $survey->id ); ?>
+							<?php selected( get_option('gravity-forms-survey-funnel-survey-id'), $survey->id ); ?>
 						>
 							<?php echo $survey->title; ?>
 						</option>
