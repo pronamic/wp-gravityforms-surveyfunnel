@@ -80,8 +80,7 @@ class Gravity_Forms_Survey_Funnel_Survey {
 			$display_description = true,
 			$display_inactive = true,
 			$field_values = null,
-			$ajax = true,
-			10
+			$ajax = true
 		);
 		return ob_get_clean();
 	}

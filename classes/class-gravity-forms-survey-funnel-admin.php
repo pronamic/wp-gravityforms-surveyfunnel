@@ -43,11 +43,6 @@ class Gravity_Forms_Survey_Funnel_Admin {
 	static function survey_settings_page(){
 		// Get all active surveys
 		$surveys = RGFormsModel::get_forms(true);
-		
-		// Survey positions
-		$survey_positions = array(
-			'overlay'
-		);
 
 		// Include settings page
 		include_once(Gravity_Forms_Survey_Funnel::getPluginPath() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'survey-settings.php');
