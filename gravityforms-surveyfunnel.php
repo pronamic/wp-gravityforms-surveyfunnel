@@ -16,7 +16,10 @@
  * @version 22-08-12
  */
 class Gravity_Forms_Survey_Funnel {
-	// Translate
+	
+	/**
+	 * Bootstraps the plugin
+	 */
 	static function bootstrap(){
 		// Translate
 		add_action( 'init', array( __CLASS__, 'localize' ) );
