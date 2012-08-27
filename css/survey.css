@@ -1,6 +1,7 @@
 #gravity-forms-survey-funnel-background {
 	background: #000;
 	position: absolute;
+	display: none;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -13,7 +14,8 @@
 
 #gravity-forms-survey-funnel-form {
 	background: #fff;
-	position: fixed;
+	position: absolute;
+	display: none;
 	padding: 20px;
 	z-index: 10001;
 	
