@@ -1,10 +1,11 @@
 jQuery(document).ready(function(){
+	// Check if survey has already been shown
+	if(jQuery.cookie('gravity-forms-survey-funnel-survey-id-' + gravityFormsSurveyFunnelGetSurveyId()) != null)
+		return;
+	
 	var survey_minimalized = jQuery('#gravity-forms-survey-funnel-form #form-minimalized').attr('value');
 	if(survey_minimalized)
 		jQuery('#gravity-forms-survey-funnel-form #form').css('display', 'none');
-	
-	//console.log(jQuery('#gravity-forms-survey-funnel-form #form').outerHeight());
-		
 	
 	// Show survey
 	gravityFormsSurveyFunnelSetVisible(true);
