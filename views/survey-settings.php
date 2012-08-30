@@ -22,17 +22,51 @@ endif;
 						<?php _e('Don\'t show any survey', 'gravity-forms-survey-funnel-plugin'); ?>
 					</option>
 					<?php foreach($surveys as $survey): ?>
-						<option 
-							value="<?php echo $survey->id; ?>"
-							<?php selected( get_option('gravity-forms-survey-funnel-survey-id'), $survey->id ); ?>
-						>
-							<?php echo $survey->title; ?>
-						</option>
+					<option 
+						value="<?php echo $survey->id; ?>"
+						<?php selected( get_option('gravity-forms-survey-funnel-survey-id'), $survey->id ); ?>
+					>
+						<?php echo $survey->title; ?>
+					</option>
 					<?php endforeach; ?>
 				</select>
 			</td>
 			<td><i><?php _e('Select a survey', 'gravity-forms-survey-funnel-plugin'); ?></i></td>
 		</tr>
+		<tr>
+			<td><?php _e('Position', 'gravity-forms-survey-funnel-plugin'); ?></td>
+			<td>
+				<select name="gravity-forms-survey-funnel-survey-position">
+					<option 
+						value="bottomleft"
+						<?php selected( get_option('gravity-forms-survey-funnel-survey-position'), 'bottomleft' ); ?>
+					>
+						<?php _e('Bottom-Left', 'gravity-forms-survey-funnel-plugin'); ?>
+					</option>
+					<option 
+						value="popup"
+						<?php selected( get_option('gravity-forms-survey-funnel-survey-position'), 'popup' ); ?>
+					>
+						<?php _e('Popup', 'gravity-forms-survey-funnel-plugin'); ?>
+					</option>
+				</select>
+			</td>
+			<td><i><?php _e('Select how the survey should be shown.', 'gravity-forms-survey-funnel-plugin'); ?></i></td>
+		</tr>
+		<?php if( get_option('gravity-forms-survey-funnel-survey-position') != 'popup'): ?>
+		<tr>
+			<td><?php _e('Minimalized', 'gravity-forms-survey-funnel-plugin'); ?></td>
+			<td>
+				<input
+					type="checkbox"
+					name="gravity-forms-survey-funnel-survey-minimalized"
+					value="1"
+					<?php checked( get_option('gravity-forms-survey-funnel-survey-minimalized'), 1 ); ?>
+				/>
+			</td>
+			<td><i><?php _e('Check to start surveys minimized.', 'gravity-forms-survey-funnel-plugin'); ?></i></td>
+		</tr>
+		<?php endif; ?>
 	</table>
 	
 	<?php submit_button(); ?>

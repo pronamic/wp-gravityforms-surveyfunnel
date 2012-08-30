@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
 	// Check if survey has already been shown
-	if(jQuery.cookie('gravity-forms-survey-funnel-survey-id-' + gravityFormsSurveyFunnelGetSurveyId()) != null)
-		return;
+//	if(jQuery.cookie('gravity-forms-survey-funnel-survey-id-' + gravityFormsSurveyFunnelGetSurveyId()) != null)
+//		return;
 	
 	// Make the black background stretch all the way down the document
 	jQuery('#gravity-forms-survey-funnel-background').height(jQuery(document).outerHeight(true));

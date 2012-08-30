@@ -35,6 +35,8 @@ class Gravity_Forms_Survey_Funnel_Admin {
 	 */
 	static function register_settings(){
 		register_setting('gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-id');
+		register_setting('gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-position');
+		register_setting('gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-minimalized');
 	}
 	
 	/**
