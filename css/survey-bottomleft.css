@@ -1,4 +1,4 @@
-#gravity-forms-survey-funnel-form {
+#gravity-forms-survey-funnel {
 	position: fixed;
 	display: none;
 	z-index: 10001;
@@ -11,7 +11,7 @@
 	left: 20px;;
 }
 
-#gravity-forms-survey-funnel-form #form {
+#gravity-forms-survey-funnel-form {
 	height: 400px;
 	overflow-x: hidden;
 	background: #fff;
@@ -19,30 +19,31 @@
 	padding: 10px;
 }
 
-#gravity-forms-survey-funnel-form #header {
+#gravity-forms-survey-funnel-header {
 	height: 32px;
+	width: 300px;
 	line-height: 32px;
 	
 	background: #e5e5e5;
 	border-bottom: 1px solid #ccc;
 }
 
-#gravity-forms-survey-funnel-form #header:hover {
+#gravity-forms-survey-funnel-header:hover {
 	cursor: pointer;
 }
 
-#gravity-forms-survey-funnel-form #header #title {
+#gravity-forms-survey-funnel-title {
 	padding-left: 10px;
 	font-weight: bold;
 }
 
-#gravity-forms-survey-funnel-form #header #close {
+#gravity-forms-survey-funnel-close {
 	float: right;
 	width: 32px;
 	height: 32px;
 	background: url('../images/close.png') no-repeat;
 }
 
-#gravity-forms-survey-funnel-form #header .clear{
+.gravity-forms-survey-funnel-clear{
 	clear: both;
 }
