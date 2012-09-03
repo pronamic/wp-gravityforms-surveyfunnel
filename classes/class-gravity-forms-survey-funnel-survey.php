@@ -60,15 +60,13 @@ class Gravity_Forms_Survey_Funnel_Survey {
 	
 	/**
 	 * Outputs the html of the form
-	 * 
-	 * @param int $surveyId
 	 */
 	static function prepare_form(){
 		$surveyId = get_option('gravity-forms-survey-funnel-survey-id');
 		
 		$minimalized = get_option('gravity-forms-survey-funnel-survey-minimalized');
 		
-		// Get form
+		// Get form object
 		$form = self::get_form( get_option('gravity-forms-survey-funnel-survey-id') );
 		
 		// Get correct file by survey position
@@ -84,25 +82,29 @@ class Gravity_Forms_Survey_Funnel_Survey {
 	/**
 	 * Get form
 	 * 
-	 * @param int $surveyId
-	 * @return string $form
+	 * @param int $survey_id
+	 * @return stdObject $form
 	 */
-	static function get_form( $surveyId ){
+	static function get_form( $survey_id ){
 		$not_available_message = '<p>' . __('We\'re sorry, the survey is not available at the moment.', 'gravity-forms-survey-funnel') . '</p>'; 
-		if( ! is_numeric( $surveyId ) )
+		if( ! is_numeric( $survey_id ) )
 			return $not_available_message;
 		
+		// Get form object
+		$form = RGFormsModel::get_form( $survey_id );
+		
+		// Get form content
 		ob_start();
 		gravity_form(
-			get_option('gravity-forms-survey-funnel-survey-id'),
-			$display_title = true,
+			$survey_id,
+			$display_title = false,
 			$display_description = true,
 			$display_inactive = false,
 			$field_values = null,
 			$ajax = true
 		);
-		$form = ob_get_clean();
-		
+		$form->content = ob_get_clean();
+
 		if( ! empty( $form ) )
 			return $form;
 		return $not_available_message;
