@@ -12,7 +12,7 @@ class Gravity_Forms_Survey_Funnel_Survey {
 	 */
 	static function init(){
 		// Check if a survey should be shown
-		$surveyId = get_option('gravity-forms-survey-funnel-survey-id');
+		$surveyId = get_option( 'gravity-forms-survey-funnel-survey-id' );
 		if( ( ! is_numeric($surveyId) || $surveyId == -1 ) ||
 			( isset( $_COOKIE['gravity-forms-survey-funnel-survey-id-' . $surveyId ] ) ) )
 			return;

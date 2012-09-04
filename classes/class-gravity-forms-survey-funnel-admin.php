@@ -34,9 +34,9 @@ class Gravity_Forms_Survey_Funnel_Admin {
 	 * Register settings
 	 */
 	static function register_settings(){
-		register_setting('gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-id');
-		register_setting('gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-position');
-		register_setting('gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-minimalized');
+		register_setting( 'gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-id' );
+		register_setting( 'gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-position' );
+		register_setting( 'gravity-forms-survey-funnel-survey-settings', 'gravity-forms-survey-funnel-survey-minimalized' );
 	}
 	
 	/**
@@ -44,7 +44,7 @@ class Gravity_Forms_Survey_Funnel_Admin {
 	 */
 	static function survey_settings_page(){
 		// Get all active surveys, if Gravity Forms is active
-		if( method_exists('RGFormsModel', 'get_forms') )
+		if ( method_exists('RGFormsModel', 'get_forms') )
 			$surveys = RGFormsModel::get_forms( true );
 
 		// Include settings page
