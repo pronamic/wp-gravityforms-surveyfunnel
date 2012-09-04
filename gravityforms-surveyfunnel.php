@@ -1,13 +1,19 @@
 <?php
 /*
  Plugin Name: Gravity Forms - Survey Funnel
- Plugin URI: 
- Description: 
+ Plugin URI: http://pronamic.eu/wordpress/gravity-forms-survey-funnel/
+ Description: Welcome the visitor of your website with a survey.
+ 
  Version: 1.0.0
  Requires at least: 3.0
- Author: Pronamic, RemcoTolsma, StefanBoonstra
+ 
+ Author: Pronamic
  Author URI: http://pronamic.eu/
- License: GPLv2
+
+Text Domain: gravity-forms-survey-funnel-plugin
+Domain Path: /languages/
+
+License: GPL
 */
 
 /**
