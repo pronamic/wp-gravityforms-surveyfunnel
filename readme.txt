@@ -1,15 +1,19 @@
 === Gravity Forms Survey Funnel ===
-Contributors: pronamic, remcotolsma, StefanBoonstra
-Tags: gravity forms, gravity, forms, form, survey funnel, pop up, survey, question, answer
+Contributors: pronamic, remcotolsma
+Tags: gravity forms, gravity, forms, form, survey funnel, pop up, survey, question, answer, deprecated, adopt-me
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Welcome the visitor of your website with a survey.
+Deprecated — Welcome the visitor of your website with a survey.
 
 == Description ==
+
+> This plugin is deprecated so Pronamic wil no longer support and maintain this plugin.
+>
+> If you want to help maintain the plugin, fork it on [GitHub](https://github.com/pronamic/wp-gravityforms-surveyfunnel) and open pull requests.
 
 
 == Installation ==
@@ -31,6 +35,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.0.1 =
+*	Added an deprecated notice.
 
 = 1.0.0 =
 *	Initial release
